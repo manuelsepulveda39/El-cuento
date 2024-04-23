@@ -17,7 +17,9 @@ import java.util.ArrayList;
  */
 
 public class PDF {
-    public static void crearFactura(String nombreCliente, String numeroCliente, ArrayList<Auto> autos) throws IOException{
+    private static int numRecibo = 0;
+    
+    public static void crearFactura(Cliente cliente, ArrayList<Auto> autos) throws IOException{
         
         Document documento = new Document(PageSize.A4);
 
@@ -30,10 +32,15 @@ public class PDF {
             Image logo = Image.getInstance("src\\main\\java\\Imagenes\\logo.jpg");
             logo.scaleToFit(100, 100); // Ajustar tamaño
             documento.add(logo);
-
+            
+            documento.add(new Paragraph("\n"));
+            documento.add(new Paragraph("Numero de recibo: " + numRecibo));
+            
             // Agregar nombre y número del cliente
-            documento.add(new Paragraph("\n\nNombre del cliente: " + nombreCliente));
-            documento.add(new Paragraph("Número del cliente: " + numeroCliente));
+            documento.add(new Paragraph("\n\nNombre del cliente: " + cliente.getNombre()));
+            documento.add(new Paragraph("Número del cliente: " + cliente.getId()));
+            documento.add(new Paragraph("Telefono del cliente: " + cliente.getTelefono()));
+            documento.add(new Paragraph("Dirección del cliente: " + cliente.getDireccion()));
             documento.add(new Paragraph("\n"));
             
             // Agregar información del vehículos en una tabla
@@ -50,7 +57,7 @@ public class PDF {
                 tabla.addCell(auto.getMarca());
                 tabla.addCell(auto.getReferencia());
                 tabla.addCell(auto.getValor());
-                total += Integer.valueOf(auto.getValor());
+                total += Integer.parseInt(auto.getValor());
             }
             
             documento.add(tabla);
@@ -73,7 +80,7 @@ public class PDF {
             documento.add(tablaTotales);
             documento.close();
 
-            System.out.println("Factura creada correctamente.");
+            numRecibo += 1;
         } catch (DocumentException | java.io.FileNotFoundException e) {
             e.printStackTrace();
         }

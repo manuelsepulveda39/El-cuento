@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package clases;
 
 /**
@@ -12,7 +8,7 @@ package clases;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class prueba {
+public class Prueba{
     
     static ArrayList<Auto> autos = new ArrayList<>();
     
@@ -33,9 +29,8 @@ public class prueba {
         }
         
         autos.add(man.buscarAuto("MERCEDES BENZ", "CAMPERO", "Particular", "G 63 [W463] AMG TP 5500CC V8 T", "2017"));
-        autos.add(man.buscarPorCodigo("04208084", "2023"));
-        
-        PDF.crearFactura("Manuel", "1035", autos);
+        Cliente cliente = new Cliente("Manuel", "1035", "311", "cra 71");
+        PDF.crearFactura(cliente, autos);
         
         System.out.println("");
         System.out.println(man.buscarAuto("MERCEDES BENZ", "CAMPERO", "Particular", "G 63 [W463] AMG TP 5500CC V8 T", "2017").toString());
