@@ -38,7 +38,7 @@ public class PDF {
             
             // Agregar nombre y número del cliente
             documento.add(new Paragraph("\n\nNombre del cliente: " + cliente.getNombre()));
-            documento.add(new Paragraph("Número del cliente: " + cliente.getId()));
+            documento.add(new Paragraph("Id del cliente: " + cliente.getId()));
             documento.add(new Paragraph("Telefono del cliente: " + cliente.getTelefono()));
             documento.add(new Paragraph("Dirección del cliente: " + cliente.getDireccion()));
             documento.add(new Paragraph("\n"));
