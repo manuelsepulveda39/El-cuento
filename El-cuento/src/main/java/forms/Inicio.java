@@ -176,7 +176,10 @@ public class Inicio extends javax.swing.JFrame {
                                                     .addComponent(idText, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(telefonoText, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(direccionText, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel21))
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addComponent(jLabel21)
+                                                        .addGap(40, 40, 40)
+                                                        .addComponent(jButton1)))
                                                 .addGap(0, 0, Short.MAX_VALUE))
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,9 +214,7 @@ public class Inicio extends javax.swing.JFrame {
                                 .addComponent(jLabel16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(153, 153, 153)
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                                .addGap(153, 339, Short.MAX_VALUE)
                                 .addComponent(jLabel20)
                                 .addGap(16, 16, 16)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -337,7 +338,9 @@ public class Inicio extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(!nombreText.getText().isEmpty() && !idText.getText().isEmpty() && !telefonoText.getText().isEmpty() && !direccionText.getText().isEmpty()){
             manejoCliente.guardarCliente(nombreText.getText(), idText.getText(), telefonoText.getText(), direccionText.getText());
-            
+            Introduccion siguiente = new Introduccion();
+            siguiente.setVisible(true);
+            this.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(this, "Debe ingresar todos los datos");
         }

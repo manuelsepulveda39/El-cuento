@@ -372,6 +372,11 @@ public class Vehiculos extends javax.swing.JFrame
 
         Anterior.setFont(new java.awt.Font("Agency FB", 3, 24)); // NOI18N
         Anterior.setText("Anterior");
+        Anterior.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnteriorActionPerformed(evt);
+            }
+        });
 
         Siguiente.setFont(new java.awt.Font("Agency FB", 3, 24)); // NOI18N
         Siguiente.setText("Siguiente");
@@ -781,6 +786,12 @@ public class Vehiculos extends javax.swing.JFrame
             this.setVisible(false);
         }
     }//GEN-LAST:event_SiguienteActionPerformed
+
+    private void AnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnteriorActionPerformed
+        Introduccion anterior = new Introduccion();
+        anterior.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_AnteriorActionPerformed
 
     /**
      * @param args the command line arguments
